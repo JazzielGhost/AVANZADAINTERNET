@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas{
+            background-color: rgb(176, 141, 223);
+        }
+    </style>
+</head>
+<body>
+    
+    <canvas id="myCanva" width="350px" height="500px"></canvas>
+    <script>
+        var canvas = document.getElementById('myCanva');
+        var ctx = canvas.getContext('2d');
+        
+        ctx.fillStyle = "rgba(120, 100, 255)";
+        ctx.fillRect(20,20,50,50);
+
+        ctx.fillStyle = "red";
+        ctx.fillRect(60,60,50,50);
+
+        ctx.fillStyle = "rgba(255, 100, 200, 0.6)";
+        ctx.fillRect(100,100,50,50,0.5);
+/*      ctx.strokeStyle = "red";
+        ctx.strokeRect(100,100,50,50);
+
+        ctx.beginPath(); //inicia
+        ctx.moveTo(220,40); 
+        ctx.lineTo(260,80);
+        ctx.lineTo(180,80);
+        
+        ctx.fill(); //rellena
+        ctx.closePath(); //cierra
+*/      
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TAREA 2</title>
+    <style>
+        canvas{
+            background-color: rgb(157, 199, 233);
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanva" width="350px" height="500px"></canvas>
+    <script>
+        var canvas = document.getElementById('myCanva');
+        var ctx = canvas.getContext('2d');
+
+        ctx.beginPath(); //inicia
+        ctx.moveTo(210,150); //Punto inicial (x, y)
+        ctx.lineTo(270,160);// Punto en la línea (x, y)
+        ctx.lineTo(190,100);// Otro punto en la línea (x, y)
+
+        ctx.fillStyle = "rgb(255,150,255)";
+        ctx.fill(); //rellena
+
+        ctx.closePath(); //cierra
+
+        ctx.beginPath(); //inicia
+        ctx.moveTo(165, 65); // Punto inicial (x, y)
+        ctx.lineTo(236, 125); // Punto final (x, y)
+
+        
+        ctx.stroke();// Dibujar la línea
+        ctx.closePath(); //cierra
+
+    </script>
+</body>
+</html>

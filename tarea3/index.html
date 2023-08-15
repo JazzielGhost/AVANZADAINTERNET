@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TAREA 3</title>
+    <style>
+        canvas{
+            background-color: rgb(157, 199, 233);
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanva" width="350px" height="500px"></canvas>
+    <script>
+        var canvas = document.getElementById('myCanva');
+        var ctx = canvas.getContext('2d');
+
+        const grd = ctx.createLinearGradient(0, 0, 170, 0);
+        grd.addColorStop(0, "white");
+        grd.addColorStop(0.5, "green");
+        grd.addColorStop(1, "red");
+
+        ctx.beginPath(); //inicia
+        ctx.fillStyle=grd;
+        ctx.arc(100,100,50,0 ,2 * Math.PI);
+        ctx.fill();
+        ctx.stroke();
+        ctx.closePath(); //cierra
+        
+
+        ctx.beginPath(); //inicia
+        ctx.arc(150,100,50,1 ,4 * Math.PI);
+        ctx.stroke();
+        ctx.closePath(); //cierra
+
+    </script>
+</body>
+</html>

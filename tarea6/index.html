@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tarea 6</title>
+    <style>
+        canvas{
+            background-color: rgb(190, 115, 49);
+        }
+    </style>
+</head>
+<body>
+    
+    <canvas id="myCanva" width="350px" height="500px"></canvas>
+    <script>
+        var canvas = document.getElementById('myCanva');
+        var ctx = canvas.getContext('2d');
+
+        const grd= ctx.createRadialGradient(180, 150, 0, 190, 140, 100);
+        grd.addColorStop(0, "red");
+        grd.addColorStop(.8, "white");
+
+        ctx.fillStyle = grd;
+        ctx.fillRect(100, 100, 150, 100);
+
+        ctx.beginPath(); //inicia
+        ctx.arc(250,90,50,1 ,4 * Math.PI);
+        ctx.fill();
+        ctx.arc(100,90,50,1 ,4 * Math.PI);
+        ctx.fill();
+        ctx.closePath(); //cierra
+
+        ctx.beginPath(); //inicia
+        ctx.arc(100,110,20,0 ,4 * Math.PI);
+        ctx.fillStyle = "black";
+        ctx.fill();
+        ctx.closePath(); //cierra
+
+        ctx.beginPath(); //inicia
+        ctx.arc(270,80,20,0 ,4 * Math.PI);
+        ctx.fillStyle = "black";
+        ctx.fill();
+        ctx.closePath(); //cierra
+
+    </script>
+</body>
+</html>

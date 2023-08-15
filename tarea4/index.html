@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tarea 4</title>
+    <style>
+        canvas{
+            background-color: rgb(181, 138, 237);
+        }
+    </style>
+</head>
+<body>
+    
+    <canvas id="myCanva" width="350px" height="500px"></canvas>
+    <script>
+        var canvas = document.getElementById('myCanva');
+        var ctx = canvas.getContext('2d');
+        var image = document.getElementById("imagen");
+
+
+
+        const grd = ctx.createLinearGradient(0, 0, 170, 0);
+        grd.addColorStop(0, "white");
+        grd.addColorStop(0.5, "green");
+        grd.addColorStop(1, "red");
+
+        ctx.font= "50px Beans";
+        ctx.fillStyle = grd;
+        ctx.fillText("Hola mundo tilin",10,50);
+
+        ctx.strokeStyle="Green";
+        ctx.strokeText("tilin",10,150)
+     
+
+    </script>
+</body>
+</html>

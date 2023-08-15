@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tarea 5</title>
+    <style>
+        canvas{
+            background-color: rgb(237, 215, 171);
+        }
+    </style>
+</head>
+<body>
+    
+    <canvas id="myCanva" width="350px" height="500px"></canvas>
+
+    <script>
+        var canvas = document.getElementById('myCanva');
+        var ctx = canvas.getContext('2d');
+
+        const grdac = ctx.createLinearGradient(0, 0, 170, 0);    
+        grdac.addColorStop(0, "purple");
+        grdac.addColorStop(0.9, "white");
+        grdac.addColorStop(1, "purple");
+
+        ctx.fillStyle = grdac;
+        ctx.fillRect(60,120,185,10);
+
+        const grd = ctx.createLinearGradient(0, 0, 170, 0);
+        grd.addColorStop(0, "white");
+        grd.addColorStop(0.5, "green");
+        grd.addColorStop(1, "red");
+
+        ctx.fillStyle = grd;
+        ctx.fillRect(60,150,50,50);
+        ctx.fillRect(180,150,50,50);
+        
+        const grda = ctx.createLinearGradient(0,0,190,0);
+        grda.addColorStop(0, "purple");
+        grda.addColorStop(1, "black");
+
+        ctx.fillStyle = grda;
+        ctx.fillRect(60,220,180,60);
+     
+
+     
+
+
+    
+
+
+
+    </script>
+</body>
+</html>

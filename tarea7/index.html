@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarea 7</title>
+    <style>
+        canvas{
+            background-color: rgb(150, 46, 46);
+            border-radius: 100px;
+        }
+    </style>
+</head>
+<body>
+    
+    <canvas id="myCanva" width="350px" height="500px"></canvas>
+    <img src="perro.jpeg" id="perro" style="display: none;" alt="">
+    <img src="bob.jpeg" id="bob" style="display: none;" alt="">
+    
+    <script>
+        var canvas = document.getElementById('myCanva');
+        var ctx = canvas.getContext('2d');
+
+        var imagen = document.getElementById("perro");
+        var imagen2 = document.getElementById("bob");
+
+        ctx.drawImage(perro,100,80,150,150);
+        ctx.drawImage(bob,100,250,150,150);
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarea 14</title>
+    <style>
+        canvas{
+            background-color: rgb(162, 230, 245);
+            border: 2px solid black;        
+        }
+        .activar{
+            border: 2px solid green;
+            border-radius: 10px;
+            background-color: white;
+            cursor: pointer;
+        }
+        .desactivar{
+            border: 2px solid red;
+            border-radius: 10px;
+            background-color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    
+    <canvas id="myCanvas" width="500" height="500"></canvas>
+    <button id="aves" class="activar">Activar lienzo</button>
+    <button id="aves_no" class="desactivar">Desactivar lienzo</button>
+    <img src="ohh.gif" alt="" width="120px" height="120px">
+    <img src="nike.jpeg" id="nike" width="40px" height="40px" style="display: none;" alt="">
+    <img src="paloma.jpeg" id="paloma" width="40px" height="40px" style="display: none;" alt="">
+
+
+    <script>
+        var canvas = document.getElementById('myCanvas');
+        var ctx = canvas.getContext('2d');
+        var dibujar_ave = document.getElementById('aves');
+        var no_dibujar_ave = document.getElementById('aves_no');
+        var nike = document.getElementById('nike');
+        var paloma = document.getElementById('paloma');
+
+
+        var pintar = false;
+        var pintar_nube = true;
+        const grd = ctx.createLinearGradient(100, 150, 350, 0);    
+        grd.addColorStop(0, "gray");
+        grd.addColorStop(1, "black");
+
+        const gr = ctx.createLinearGradient(80, 150, 350, 0);    
+        gr.addColorStop(0, "black");
+        gr.addColorStop(1, "red");
+ 
+
+        //circulo blanco grande
+        ctx.beginPath(); //inicia
+        ctx.fillStyle = gr;
+        ctx.arc(250,250,150,0 ,2 * Math.PI);
+        ctx.fill();
+        ctx.stroke();
+        ctx.closePath(); //cierra
+
+        //rectangulo (cuerpo)
+        ctx.beginPath(); //inicia
+        ctx.fillStyle = "#FCFCFC";
+        ctx.fillRect(225,260,60,139);
+        ctx.closePath(); //cierra
+
+        //rectangulo (manga derecha)
+        ctx.beginPath(); //inicia
+        ctx.fillStyle = "gray";
+        ctx.fillRect(284,260,25,25);
+        ctx.closePath(); //cierra
+
+        //rectangulo (manga izquierda)
+        ctx.beginPath(); //inicia
+        ctx.fillStyle = "gray";
+        ctx.fillRect(200,260,25,25);
+        ctx.closePath(); //cierra
+    
+        //circulo moreno (cabeza)
+        ctx.beginPath(); //inicia
+        ctx.fillStyle = "rgb(211, 173, 124)";
+        ctx.arc(250,200,50,0 ,2 * Math.PI);
+        ctx.fill();
+        ctx.closePath(); //cierra
+
+        //rectangulo (cuello)
+        ctx.beginPath(); //inicia
+        ctx.fillStyle = "rgb(211, 173, 124)";
+        ctx.fillRect(239,245,30,15);
+        ctx.closePath(); //cierra
+
+        //cascara de los hojos
+        ctx.beginPath(); //inicia
+        ctx.fillStyle = "white";
+        ctx.arc(225,190,10,0 ,2 * Math.PI);
+        ctx.arc(270,190,10,0 ,2 * Math.PI);
+        ctx.fill();
+        ctx.closePath(); //cierra
+
+        //ojos
+        ctx.beginPath(); //inicia
+        ctx.fillStyle = "black";
+        ctx.arc(230,195,5,0 ,2 * Math.PI);
+        ctx.arc(275,195,5,0 ,2 * Math.PI);
+        ctx.fill();
+        ctx.closePath(); //cierra
+
+        //rectangulo (brazo izquierdo)
+        ctx.beginPath(); //inicia
+        ctx.fillStyle = "rgb(211, 173, 124)";
+        ctx.fillRect(200,165,25,100);
+        ctx.closePath(); //cierra
+
+        //rectangulo (brazo derecho)
+        ctx.beginPath(); //inicia
+        ctx.fillStyle = "rgb(211, 173, 124)";
+        ctx.fillRect(309,204,20,80);
+        ctx.closePath(); //cierra
+
+         //rectangulo (brazo derecho)
+         ctx.beginPath(); //inicia
+        ctx.fillStyle = "rgb(211, 173, 124)";
+        ctx.fillRect(290,204,20,20);
+        ctx.closePath(); //cierra
+
+        //gorra
+        ctx.beginPath();
+        ctx.arc(258, 180, 40, 0, Math.PI, true); // Dibujar un semicírculo
+        ctx.fillStyle = "black";
+        ctx.fill();
+        ctx.closePath();
+
+        //rectangulo (base gorra)
+        ctx.beginPath(); //inicia
+        ctx.fillStyle = "black";
+        ctx.fillRect(280,170,50,10);
+        ctx.closePath(); //cierra
+
+        //circulo (gorra base final)
+        ctx.beginPath(); //inicia
+        ctx.fillStyle = "black";
+        ctx.arc(330,175,5,0 ,2 * Math.PI);
+        ctx.fill();
+        ctx.closePath(); //cierra
+
+        //rectangulo (brazo izquierdo)
+        ctx.beginPath(); //inicia
+        ctx.fillStyle = "rgb(211, 173, 124)";
+        ctx.fillRect(290,204,20,20);
+        ctx.closePath(); //cierra
+
+
+         //circulo (muñeca)
+         ctx.beginPath(); //inicia
+        ctx.fillStyle = "rgb(211, 173, 124)";
+        ctx.arc(215,160,15,0 ,2 * Math.PI);
+        ctx.fill();
+        ctx.closePath(); //cierra
+
+        //boca
+        ctx.beginPath(); //inicia
+        ctx.fillStyle = "#E4BC77";
+        ctx.arc(258,225,15,0 ,2 * Math.PI);
+        ctx.fill();
+        ctx.closePath(); //cierra
+        
+
+        //lengua
+        ctx.beginPath(); //inicia
+        ctx.fillStyle = "#FF9999";
+        ctx.arc(260,235,5,0 ,2 * Math.PI);
+        ctx.fill();
+        ctx.closePath(); //cierra
+
+        //el sol
+        ctx.beginPath(); //inicia
+        ctx.fillStyle = "yellow";
+        ctx.arc(480,10,80,0 ,2 * Math.PI);
+        ctx.fill();
+        ctx.stroke();
+        ctx.closePath(); //cierra
+
+        //el sol
+        ctx.beginPath(); //inicia
+        ctx.fillStyle = "gray";
+        ctx.arc(10,480,80,0 ,2 * Math.PI);
+        ctx.fill();
+        ctx.stroke();
+        ctx.closePath(); //cierra
+
+        //usado para colocar nubes
+        canvas.addEventListener("mousedown", (e) => {
+            if(pintar_nube){
+                ctx.beginPath();
+                ctx.fillStyle = "white";
+                ctx.arc(e.layerX, e.layerY, 10, 0, 2 * Math.PI);
+                ctx.fill();
+                ctx.closePath();
+            }else{
+                pintar = true;
+            }
+        });
+
+
+        //nickname - JazzielGod
+        const grda = ctx.createLinearGradient(310, 0, 250, 0);
+        grda.addColorStop(0, "green");
+        grda.addColorStop(0.5, "white");
+        grda.addColorStop(1, "red");
+
+        ctx.font= "50px Beans";
+        ctx.fillStyle = grda;
+        ctx.fillText("JazzielGod",150,450);
+        ctx.font= "15px Beans";
+        //Nombre - Jazziel Briones
+        ctx.fillStyle = "black";
+        ctx.fillText("Briones H. Jazziel A.",370,490);
+
+        //usado para crear aves
+        dibujar_ave.addEventListener("click",() => {
+            pintar_nube = false;
+        });
+        no_dibujar_ave.addEventListener("click", () => {
+            pintar = false;
+            pintar_nube = true;
+
+        });
+        canvas.addEventListener("mouseup", (e) => {
+            
+            pintar = false;
+            console.log("mouseup");
+            console.log(e);
+        })
+
+        canvas.addEventListener("mousemove", (e) => {
+            if(pintar){
+                ctx.beginPath();
+                ctx.fillStyle = "black";
+                ctx.arc(event.layerX - 12, event.layerY - 12, 2, 0, 2 * Math.PI);
+                ctx.fill();
+                 ctx.closePath();   
+                 
+                console.log("mousemove");
+                console.log(e);
+            }
+          
+        })
+
+     
+       
+        ctx.drawImage(nike,235,280,40,40);
+        //ctx.drawImage(paloma,10,280,200,100);
+
+    </script>
+</body>
+</html>

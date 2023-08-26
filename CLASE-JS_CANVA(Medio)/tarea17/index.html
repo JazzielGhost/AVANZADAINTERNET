@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarea 17</title>
+    <style>
+        canvas{
+            background-color: rgb(255, 255, 255);
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+    
+    <canvas id="myCanva" width="500px" height="500px"></canvas>
+
+    <script>
+        var canvas = document.getElementById('myCanva');
+        var ctx = canvas.getContext('2d');
+
+        var color = "white";
+        var pintar = false;
+
+        var x = 225;
+        var y = 225;
+        dir = 0;
+        speed = 10;
+
+        window.requestAnimationFrame = (function () {
+            return window.requestAnimationFrame ||
+                window.webkitRequestAnimationFrame ||
+                window.mozRequestAnimationFrame ||
+                function (callback) {
+                    window.setTimeout(callback, 17);
+                };
+        }());
+
+        document.addEventListener("keydown", (e)=>{
+            if(e.keyCode==87){
+                dir = 1;     
+           }
+            if(e.keyCode==83){
+                dir = 2;
+            }
+            if(e.keyCode==68){
+                dir = 3;
+            }
+            if(e.keyCode==65){
+                dir = 4;
+            }
+            if(e.keyCode==32){
+                speed+=10;
+            }
+        })
+
+        function update(){
+            if(dir == 1){
+                y-=speed;
+                if(y+50 <0){
+                    y = 550;
+                }
+            }
+
+            if(dir == 2){
+                y+=speed;
+                if(y+50 >500){
+                    y = -50;
+                }
+            }
+
+            if(dir == 3){
+                x+=speed;
+                if(x+50>500){
+                    x = -50;
+                }
+            }
+
+            if(dir == 4){
+                x-=speed;
+                if(x+50 <0){
+                    x =550;
+                }
+            }
+          
+            paint();
+            window.requestAnimationFrame(update);
+
+        }
+        
+        function paint(){
+            ctx.fillStyle = "white"
+            ctx.fillRect(0,0,500,500);
+            ctx.fillStyle = generateRandomColor();
+            ctx.fillRect(x,y,50,50);
+        }        
+
+        update();
+
+        function generateRandomColor() {
+            var letters = '0123456789ABCDEF';
+            var color = 'rgba(';
+
+            for (var i = 0; i < 3; i++) {
+                var channelValue = parseInt(letters[Math.floor(Math.random() * 16)] + letters[Math.floor(Math.random() * 16)], 16);
+                color += channelValue;
+                if (i < 2) {
+                    color += ', ';
+                }
+            }
+            color += ', 0.5)';
+            return color;
+        }
+
+
+    </script>
+</body>
+</html>

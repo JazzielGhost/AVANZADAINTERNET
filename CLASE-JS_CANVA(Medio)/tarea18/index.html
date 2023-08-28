@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarea 18</title>
+    <style>
+        canvas{
+            background-color: rgb(99, 200, 225);
+            border: 2px solid black;        
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="myCanvas" width="500" height="500"></canvas>
+    <button id="aves" class="activar">Activar lienzo</button>
+    <button id="aves_no" class="desactivar">Desactivar lienzo</button>
+    <script>
+        var canvas = document.getElementById('myCanvas');
+        var ctx = canvas.getContext('2d');
+        var dibujar_ave = document.getElementById('aves');
+        var no_dibujar_ave = document.getElementById('aves_no');
+
+        var pintar = false;
+        var pintar_nube = true;
+
+        ///////////////////////////////////////////////////
+         //usado para crear aves
+        dibujar_ave.addEventListener("click",() => {
+            pintar_nube = false;
+        });
+        no_dibujar_ave.addEventListener("click", () => {
+            pintar = false;
+            pintar_nube = true;
+
+        });
+        canvas.addEventListener("mouseup", (e) => {
+            
+            pintar = false;
+            console.log("mouseup");
+            console.log(e);
+        })
+
+        canvas.addEventListener("mousemove", (e) => {
+            if(pintar){
+                ctx.beginPath();
+                ctx.fillStyle = "black";
+                ctx.arc(event.layerX - 12, event.layerY - 12, 2, 0, 2 * Math.PI);
+                ctx.fill();
+                 ctx.closePath();   
+                 
+                console.log("mousemove");
+                console.log(e);
+            }
+          
+        })
+        //fondo
+        const g = ctx.createLinearGradient(490, 320, 350, 10);    
+        g.addColorStop(0, "yellow");
+        g.addColorStop(0.5, "orange");
+        g.addColorStop(1, "rgb(99, 200, 225)");
+        ctx.fillStyle=g;
+        ctx.fillRect(0,0,1000,1000);
+
+        //el sol    
+        const d= ctx.createRadialGradient(490, 300, 0, 490, 280, 100);
+        d.addColorStop(0, "yellow");
+        d.addColorStop(.8, "white");
+
+        ctx.beginPath(); //inicia
+        ctx.fillStyle = d;
+        ctx.arc(510,290,50,0 ,2 * Math.PI);
+        ctx.fill();
+        ctx.stroke();
+        ctx.closePath(); //cierra
+
+        //luna
+        ctx.beginPath(); //inicia
+        ctx.fillStyle = "#6F6F6F";
+        ctx.arc(4,4,20,0 ,2 * Math.PI);
+        ctx.fill();
+        ctx.stroke();
+        ctx.closePath(); //cierra
+
+
+        ///////////////////////////////////////////////////
+        //usado para colocar nubes
+        canvas.addEventListener("mousedown", (e) => {
+            if(pintar_nube){
+                ctx.beginPath();
+                ctx.fillStyle = "white";
+                ctx.arc(e.layerX, e.layerY, 10, 0, 2 * Math.PI);
+                ctx.fill();
+                ctx.closePath();
+            }else{
+                pintar = true;
+            }
+        });
+        ///////////////////////////////////////////////////
+        const gr = ctx.createLinearGradient(250, 0, 410, 0);    
+        gr.addColorStop(0, "#857848");
+        gr.addColorStop(1, "white");
+
+
+        //fondo verde
+        ctx.beginPath(); // Inicia
+        ctx.fillStyle="green";
+        ctx.rect(0,300,500,200);
+        ctx.fill();
+        ctx.stroke();
+        ctx.closePath(); // Cierra
+
+        //fondo pavimento
+        ctx.beginPath(); // Inicia
+        ctx.fillStyle="#C4BAAF";
+        ctx.rect(0,380,500,100);
+        ctx.fill();
+        ctx.stroke();
+        ctx.closePath(); // Cierra
+
+        //part1 casa
+        ctx.beginPath(); // Inicia
+        ctx.fillStyle=gr;
+        ctx.fillRect(50, 240, 380, 200); 
+        ctx.stroke(); 
+        ctx.closePath(); // Cierra
+
+        //part3 casa
+        ctx.beginPath(); // Inicia
+        ctx.fillStyle="#D3B28B"
+        ctx.fillRect(239,100,189,140);
+        ctx.fillStyle=gr;
+        ctx.fillRect(50, 100, 190, 150);
+        ctx.fillStyle="#513617"; 
+        ctx.fillRect(239, 100, 189, 10); 
+        ctx.fillStyle="black"; 
+        ctx.fillRect(239, 120, 189, 10);
+        ctx.fillRect(239, 140, 189, 10);
+        ctx.fillRect(239, 160, 189, 10); 
+        ctx.fillRect(239, 180, 189, 10); 
+        ctx.fillRect(239, 200, 189, 10); 
+        ctx.fillRect(239, 220, 189, 10); 
+        ctx.fillStyle="#513617"; 
+        ctx.fillRect(420, 100, 10, 140);
+        ctx.stroke(); 
+        ctx.closePath(); // Cierra
+        
+        //ventana
+        const grd = ctx.createLinearGradient(160, 150, 350, 0);    
+        grd.addColorStop(0, "white");
+        grd.addColorStop(1, "gray");
+
+        //part3 casa(ventana inferior derecha)
+        ctx.beginPath(); // Inicia
+        ctx.fillStyle="rgb(133,120,72)";
+        ctx.fillRect(309, 270, 100,100); 
+        ctx.fillStyle="white";
+        ctx.fillRect(310, 270, 40,40); 
+        ctx.fillRect(370, 270, 40,40); 
+        ctx.fillRect(370, 330, 40,40); 
+        ctx.fillRect(310, 330, 40,40); 
+        ctx.rect(309, 270, 100,100);
+        ctx.stroke();
+        ctx.closePath(); // Cierra 
+
+        //part4 casa(ventana superior y techo)
+        ctx.beginPath(); // Inicia
+        ctx.rect(95,120,100,100);
+        ctx.fillStyle="white";
+        ctx.fillRect(95,120,40,40);
+        ctx.fillRect(154,120,40,40);
+        ctx.fillRect(154,180,40,40);
+        ctx.fillRect(95,180,40,40);
+        ctx.fillStyle="#C4BAAF";
+        ctx.fillRect(10,80,430,20);
+        ctx.fillStyle="black";
+        ctx.fillRect(15,98,10,25);
+        ctx.fillStyle="white";
+        ctx.fillRect(15,120,25,10);
+        ctx.fillStyle="black";
+        ctx.fillRect(80,30,70,50);
+        ctx.fillStyle="white";
+        ctx.fillRect(95,40,25,10);
+        ctx.fillStyle="black";
+        ctx.fillRect(95,25,25,10);
+        ctx.fillStyle="#C4BAAF";
+        ctx.fillRect(70,70,100,20);
+        ctx.fillStyle="white";
+        ctx.fillRect(290,40,4,50);
+        ctx.fillRect(298,50,4,20);
+        ctx.fillRect(309,45,4,28);        
+        ctx.fillStyle="#C4BAAF";
+        ctx.fillRect(280,70,70,20);
+        ctx.stroke();
+        ctx.closePath(); // Cierra 
+
+        ctx.beginPath();
+        ctx.fillStyle="black";
+        ctx.arc(39, 125, 4, 0,2 * Math.PI, true); // Dibujar un semicírculo
+        ctx.fill();
+        ctx.closePath();
+
+        //puerta
+        ctx.beginPath(); // Inicia
+        ctx.fillStyle="#AB8B27";
+        ctx.rect(190,290,80,150);
+        ctx.fill();
+        ctx.stroke();
+        ctx.closePath(); // Cierra
+
+        ctx.beginPath();
+        ctx.fillStyle="#AB8B27";
+        ctx.arc(230, 290, 40, 0, Math.PI, true); // Dibujar un semicírculo
+        ctx.fill();
+        ctx.stroke();
+        ctx.closePath();
+
+        //rejilla
+        ctx.beginPath();
+        ctx.fillStyle="#996F43";
+        ctx.arc(260, 350, 5, 0,2 * Math.PI, true);
+        ctx.fill();
+        ctx.stroke();
+        ctx.closePath();
+
+        //patio (solo son dos lineasxd)
+        ctx.beginPath(); //inicia
+        ctx.moveTo(50,440); // Punto inicial (x, y)
+        ctx.lineTo(0, 499); // Punto final (x, y)
+        ctx.stroke();// Dibujar la línea
+        ctx.closePath(); //cierra
+
+        ctx.beginPath(); //inicia
+        ctx.moveTo(430,440); // Punto inicial (x, y)
+        ctx.lineTo(499, 499); // Punto final (x, y)
+        ctx.stroke();// Dibujar la línea
+        ctx.closePath(); //cierra
+
+        ctx.beginPath(); //inicia
+        ctx.fillStyle="";
+        ctx.fillRect(30,360,10,120);
+        ctx.fillRect(60,360,10,120);
+        ctx.fillRect(90,360,10,120);
+        ctx.fillRect(120,360,10,120);
+        ctx.fillRect(150,360,10,120);
+
+        ctx.fillRect(280,360,10,120);
+        ctx.fillRect(310,360,10,120);
+        ctx.fillRect(340,360,10,120);
+        ctx.fillRect(370,360,10,120);
+        ctx.fillRect(400,360,10,120);
+        ctx.fillRect(430,360,10,120);
+        ctx.fillStyle="black";
+        ctx.fillRect(20,380,150,10);
+        ctx.fillRect(20,400,150,10);
+        ctx.fillRect(20,420,150,10);
+        
+        ctx.fillRect(275,380,175,10);
+        ctx.fillRect(275,400,175,10);
+        ctx.fillRect(275,420,175,10);
+
+        ctx.fillStyle="white";
+        ctx.fillRect(140,340,35,20);
+        ctx.fillStyle="black";
+        ctx.fillRect(145,328,5,20);
+        ctx.closePath(); //cierra
+        
+        ctx.beginPath();
+        ctx.fillStyle="white";
+        ctx.arc(170, 350, 10, 0,2 * Math.PI, false);
+        ctx.fill();
+        ctx.closePath();
+
+        ctx.beginPath();
+        ctx.fillStyle="red";
+        ctx.arc(144, 330, 4, 0,2 * Math.PI, false);
+        ctx.fill();
+        ctx.closePath();
+
+        ctx.beginPath();
+        ctx.fillStyle="#C4BAAF"; 
+        ctx.fillRect(80, 265, 80, 10);
+        ctx.fillRect(98, 260, 50, 10);
+        ctx.fillRect(110, 270, 10, 10);
+        ctx.fillStyle="white";
+        ctx.fillRect(110, 280, 9,9);
+        ctx.fillStyle="yellow";
+        ctx.fillRect(112, 285, 5,5);
+        ctx.stroke(); 
+        ctx.closePath(); // Cierra
+
+        //camara circulo
+        ctx.beginPath();
+        ctx.fillStyle="white";
+        ctx.arc(144, 275, 10, 0,Math.PI, false);
+        ctx.fill();
+        ctx.closePath();
+
+        ctx.beginPath();
+        ctx.fillStyle="black";
+        ctx.arc(140, 283, 3, 0,2 * Math.PI, false);
+        ctx.fill();
+        ctx.closePath();
+
+
+    </script>
+</body>
+</html>

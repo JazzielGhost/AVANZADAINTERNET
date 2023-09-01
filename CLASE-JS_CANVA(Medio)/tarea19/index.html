@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarea 19</title>
+    <style>
+        canvas {
+            background-color: #A2F0FF;
+            border: 2px solid black;        
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="myCanvas" width="870" height="450"></canvas>
+
+    <script>
+        var canvas = document.getElementById('myCanvas');
+        var ctx = canvas.getContext('2d');
+        
+         //arbusto
+         ctx.beginPath();//inicia
+        ctx.fillStyle = "#5AD16E";
+        ctx.arc(60,340,30,0 ,2 * Math.PI);
+        ctx.arc(60,380,30,0 ,2 * Math.PI);
+        ctx.fill();
+        ctx.stroke();
+        ctx.closePath();//termina
+        //arbusto
+        ctx.beginPath();//inicia
+        ctx.fillStyle = "#5AD16E";
+        ctx.arc(80,360,30,0 ,2 * Math.PI);
+        ctx.fill();
+        ctx.stroke();
+        ctx.closePath();//termina     
+    
+        //arbusto
+        ctx.beginPath();//inicia
+        ctx.fillStyle = "#5AD16E";
+        ctx.arc(69,360,30,0 ,2 * Math.PI);
+        ctx.fill();
+        ctx.closePath();//termina  
+
+
+        //cuerpo planta        
+        ctx.beginPath();
+        ctx.fillStyle="#60CC7C";
+        ctx.fillRect(610,160,13,100);
+        ctx.closePath();
+
+        //cabeza planta
+        ctx.beginPath();
+        ctx.fillStyle = "#DE3220";
+        ctx.arc(610,150,30,0 ,0.8 * Math.PI);
+        ctx.fill();
+        ctx.closePath();
+
+        //cabeza planta
+        ctx.beginPath();
+        ctx.fillStyle = "#DE3220";
+        ctx.arc(610,150,30,0 ,1 * Math.PI, true);
+        ctx.fill();
+        ctx.closePath();
+
+        //cabeza labio superior
+        ctx.beginPath();
+        ctx.fillStyle = "white";
+        roundedRect(579,142,62,8,3);
+        ctx.fill();
+        ctx.closePath();
+
+        //hojas de la planta
+        ctx.beginPath();//inicia
+        ctx.fillStyle = "#60CC7C";
+        ctx.arc(602,189,8,0 ,1.2 * Math.PI);
+        ctx.fill();
+        ctx.closePath();//termina
+
+        //hojas de la planta
+        ctx.beginPath();//inicia
+        ctx.fillStyle = "#60CC7C";
+        ctx.arc(602,205,8,0 ,1.2 * Math.PI);
+        ctx.fill();
+        ctx.closePath();//termina
+
+        //hojas de la planta
+        ctx.beginPath();//inicia
+        ctx.fillStyle = "#60CC7C";
+        ctx.arc(630,205,8,0 ,.9 * Math.PI);
+        ctx.fill();
+        ctx.closePath();//termina
+
+         //hojas de la planta
+         ctx.beginPath();//inicia
+        ctx.fillStyle = "#60CC7C";
+        ctx.arc(630,189,8,0 ,.9 * Math.PI);
+        ctx.fill();
+        ctx.closePath();//termina
+
+        //cabeza labio inferior
+        ctx.beginPath();//inicia
+        ctx.lineWidth =10;
+        ctx.strokeStyle = "white";
+        ctx.moveTo(586,170);
+        ctx.lineTo(639,148);
+        ctx.stroke();
+        ctx.closePath();//termina
+        ctx.strokeStyle = "black"; //restablecer color
+
+        //cabeza planta circulos blancos
+        ctx.beginPath();//inicia
+        ctx.fillStyle = "white";
+        ctx.arc(590,135,2,0 ,2 * Math.PI);
+        ctx.arc(600,130,2,0 ,2 * Math.PI);
+        ctx.fill();
+        ctx.closePath();//termina
+
+        //cabeza planta circulos blancos
+        ctx.beginPath();//inicia
+        ctx.fillStyle = "white";
+        ctx.arc(610,135,2,0 ,2 * Math.PI);
+        ctx.arc(610,126,2,0 ,2 * Math.PI);
+        ctx.fill();
+        ctx.closePath();//termina
+
+        //cabeza planta circulos blancos
+        ctx.beginPath();//inicia
+        ctx.fillStyle = "white";
+        ctx.arc(618,130,2,0 ,2 * Math.PI);
+        ctx.arc(625,132,2,0 ,2 * Math.PI);
+        ctx.fill();
+        ctx.closePath();//termina
+
+        //cabeza planta circulos blancos
+        ctx.beginPath();//inicia
+        ctx.fillStyle = "white";
+        ctx.arc(598,175,2,0 ,2 * Math.PI);
+        ctx.arc(610,170,2,0 ,2 * Math.PI);
+        ctx.fill();
+        ctx.closePath();//termina
+
+        //cabeza planta circulos blancos
+        ctx.beginPath();//inicia
+        ctx.fillStyle = "white";
+        ctx.arc(625,175,2,0 ,2 * Math.PI);
+        ctx.arc(625,165,2,0 ,2 * Math.PI);
+        ctx.fill();
+        ctx.closePath();//termina
+
+        //cuadros (4)
+        ctx.beginPath();//inicia
+        ctx.fillStyle = "#FF8852";
+        ctx.fillRect(120, 20, 50, 50);
+        ctx.fillRect(170, 20, 50, 50);
+        ctx.fillRect(25, 180, 50, 50);
+        ctx.fillRect(780, 80, 50, 50);
+        ctx.lineWidth =3; // Ancho del borde
+        // Trazar bordes 
+        ctx.strokeRect(120, 20, 50, 50);
+        ctx.strokeRect(170, 20, 50, 50);
+        ctx.strokeRect(25, 180, 50, 50);
+        ctx.strokeRect(780, 80, 50, 50);
+        ctx.closePath();//termina
+
+        //pisoarriba
+        ctx.beginPath();//inicia
+        ctx.lineWidth =5;
+        ctx.fillStyle = "#FFC0B5";
+        roundedRect(0, 380,872, 50,10);
+        ctx.stroke();
+        ctx.fill();
+        ctx.closePath();//termina
+
+        //pisoabajo
+        ctx.beginPath();//inicia
+        ctx.fillStyle = "#FF9766";
+        ctx.fillRect(0, 400, 880, 50);
+        ctx.strokeRect(0, 400, 900, 50);
+        ctx.closePath();//termina
+
+        //sombras del cuadro grande (azul)
+        ctx.beginPath();//inicia
+        ctx.fillStyle = "black";
+        roundedRect(420,140,35,240,10);
+        ctx.fill();
+        ctx.closePath();//termina
+
+        //cuadro azul 
+        ctx.beginPath();//inicia
+        ctx.fillStyle = "#71C2FF";
+        roundedRect(280, 120, 150, 260,10);
+        ctx.lineWidth=5;
+        ctx.stroke();
+        ctx.fill();
+        ctx.closePath();//termina
+
+        //sombras del cuadro grande (crema)
+        ctx.beginPath();//inicia
+        ctx.fillStyle = "black";
+        roundedRect(320,250,35,130,10);
+        ctx.fill();
+        ctx.closePath();//termina
+
+        //cuadro cremita
+        ctx.beginPath();//inicia
+        ctx.fillStyle = "#FFC0B5";
+        roundedRect(170, 230, 160, 150,10);
+        ctx.lineWidth =5;
+        ctx.stroke();
+        ctx.fill();
+        ctx.closePath();//termina
+
+        //sombras del cuadro grande
+        ctx.beginPath();//inicia
+        ctx.fillStyle = "#E79F81";
+        roundedRect(320,232,10,145,5);
+        ctx.fill();
+        ctx.closePath();//termina
+
+        //sombras del cuadro grande
+        ctx.beginPath();//inicia
+        ctx.fillStyle = "#E79F81";
+        roundedRect(170,370,158,10,5);
+        ctx.fill();
+        ctx.closePath();//termina
+
+        //primer cuadro (circulitos)
+        ctx.beginPath();//inicia
+        ctx.fillStyle = "black";
+        ctx.arc(35,190,2,0 ,2 * Math.PI);
+        ctx.arc(35,218,2,0 ,2 * Math.PI);
+        ctx.fill();
+        ctx.closePath();//termina
+      
+        //primer cuadro (circulitos)
+        ctx.beginPath();//inicia
+        ctx.fillStyle = "black";
+        ctx.arc(66,190,2,0 ,2 * Math.PI);
+        ctx.arc(66,218,2,0 ,2 * Math.PI);
+        ctx.fill();
+        ctx.closePath();//termina
+
+        //segundo cuadro(circulitos)
+        ctx.beginPath();//inicia
+        ctx.fillStyle = "black";
+        ctx.arc(130,30,2,0 ,2 * Math.PI);
+        ctx.arc(160,30,2,0 ,2 * Math.PI);
+        ctx.fill();
+        ctx.closePath();//termina
+        
+        //segundo cuadro(circulitos)
+        ctx.beginPath();//inicia
+        ctx.fillStyle = "black";
+        ctx.arc(130,60,2,0 ,2 * Math.PI);
+        ctx.arc(160,60,2,0 ,2 * Math.PI);
+        ctx.fill();
+        ctx.closePath();//termina
+
+        //tercer cuadro(circulitos)
+        ctx.beginPath();//inicia
+        ctx.fillStyle = "black";
+        ctx.arc(180,30,2,0 ,2 * Math.PI);
+        ctx.arc(210,30,2,0 ,2 * Math.PI);
+        ctx.fill();
+        ctx.closePath();//termina
+        
+        //sombras del cuadro grande
+        ctx.beginPath();//inicia
+        ctx.fillStyle = "#0094E6";
+        roundedRect(420,121,10,258,5);
+        ctx.fill();
+        ctx.closePath();//termina
+
+        //tercer cuadro(circulitos)
+        ctx.beginPath();//inicia
+        ctx.fillStyle = "black";
+        ctx.arc(180,60,2,0 ,2 * Math.PI);
+        ctx.arc(210,60,2,0 ,2 * Math.PI);
+        ctx.fill();
+        ctx.closePath();//termina
+     
+        //cuarto cuadro (circulitos)
+        ctx.beginPath();//inicia
+        ctx.fillStyle = "black";
+        ctx.arc(790,90,2,0 ,2 * Math.PI);
+        ctx.arc(790,120,2,0 ,2 * Math.PI);
+        ctx.fill();
+        ctx.closePath();//termina
+
+        //cuarto cuadro (circulitos)
+        ctx.beginPath();//inicia
+        ctx.fillStyle = "black";
+        ctx.arc(820,90,2,0 ,2 * Math.PI);
+        ctx.arc(820,120,2,0 ,2 * Math.PI);
+        ctx.fill();
+        ctx.closePath();//termina
+
+
+        //primer cuadro grande (circulo 1)
+        ctx.beginPath();//inicia
+        ctx.fillStyle = "#BDCBCD";
+        ctx.arc(190,248,10,0 ,2 * Math.PI);
+        ctx.stroke();
+        ctx.fill();
+        ctx.closePath();//termina
+
+        //primer cuadro grande (circulo 2)
+        ctx.beginPath();//inicia
+        ctx.fillStyle = "#BDCBCD";
+        ctx.arc(310,248,10,0 ,2 * Math.PI);
+        ctx.stroke();
+        ctx.fill();
+        ctx.closePath();//termina
+
+        //primer cuadro grande (circulo 3)
+        ctx.beginPath();//inicia
+        ctx.fillStyle = "#BDCBCD";
+        ctx.arc(190,358,10,0 ,2 * Math.PI);
+        ctx.stroke();
+        ctx.fill();
+        ctx.closePath();//termina
+
+        //primer cuadro grande (circulo 3)
+        ctx.beginPath();//inicia
+        ctx.fillStyle = "#BDCBCD";
+        ctx.arc(310,358,10,0 ,2 * Math.PI);
+        ctx.stroke();
+        ctx.fill();
+        ctx.closePath();//termina
+
+        //lienas de los circulos (cuadro grande crema)
+        ctx.beginPath(); //inicia
+        ctx.lineWidth =2; // Ancho del borde
+        ctx.moveTo(184, 255); // Punto inicial (x, y)
+        ctx.lineTo(198, 240); // Punto final (x, y)
+        ctx.moveTo(184, 368); 
+        ctx.lineTo(198, 350); 
+        ctx.moveTo(303, 368); 
+        ctx.lineTo(316, 350); 
+        ctx.moveTo(303, 258); 
+        ctx.lineTo(316, 240); 
+        ctx.stroke();// Dibujar la línea
+        ctx.closePath(); //cierra
+
+        //segundo cuadro grande (circulo 1)
+        ctx.beginPath();//inicia
+        ctx.lineWidth =4;
+        ctx.fillStyle = "#BDCBCD";
+        ctx.arc(300,140,10,0 ,2 * Math.PI);
+        ctx.stroke();
+        ctx.fill();
+        ctx.closePath();//termina
+
+        //segundo cuadro grande (circulo 2)
+        ctx.beginPath();//inicia
+        ctx.lineWidth =4;
+        ctx.fillStyle = "#BDCBCD";
+        ctx.arc(410,140,10,0 ,2 * Math.PI);
+        ctx.stroke();
+        ctx.fill();
+        ctx.closePath();//termina
+
+        //segundo cuadro grande (circulo 2)
+        ctx.beginPath();//inicia
+        ctx.lineWidth =4;
+        ctx.fillStyle = "#BDCBCD";
+        ctx.arc(410,360,10,0 ,2 * Math.PI);
+        ctx.stroke();
+        ctx.fill();
+        ctx.closePath();//termina
+
+        //lineas rectangulo azul
+        ctx.beginPath(); //inicia
+        ctx.lineWidth =2;
+        ctx.moveTo(307, 131); // Punto inicial (x, y)
+        ctx.lineTo(294, 149); // Punto final (x, y)
+        ctx.moveTo(415, 131);
+        ctx.lineTo(405, 149);
+        ctx.moveTo(415, 351);
+        ctx.lineTo(404, 369);
+        ctx.stroke();
+        ctx.closePath(); //cierra
+
+
+        //tubo verde
+        ctx.beginPath();
+        ctx.lineWidth =6;
+        ctx.fillStyle="#008B00";
+        ctx.fillRect(560,257,100,120);
+        ctx.strokeRect(560,257,100,120);
+        ctx.fillRect(552,220,115,55);
+        ctx.strokeRect(552,220,115,55);
+        ctx.closePath()
+
+        //sombras de tubo verde
+        ctx.beginPath();
+        ctx.fillStyle="#00E555";
+        ctx.fillRect(560,223,4,48);
+        ctx.fillRect(568,223,10,48);
+        ctx.fillRect(585,223,4,48);
+        ctx.fillRect(610,223,4,48);
+        ctx.fillRect(618,223,4,48);
+        ctx.fillRect(618,223,4,48);
+        ctx.fillRect(640,223,3,48);
+        ctx.fillRect(645,223,3,48);
+        ctx.fillRect(650,223,3,48);
+        ctx.fillRect(660,223,3,48);
+        ctx.fillRect(565,278,3,95);
+        ctx.fillRect(574,278,10,95);
+        ctx.fillRect(590,278,3,95);
+        ctx.fillRect(612,278,3,95);
+        ctx.fillRect(620,278,3,95);
+        ctx.fillRect(642,278,3,95);
+        ctx.fillRect(648,278,3,95);
+        ctx.fillRect(655,278,3,95);
+        ctx.closePath()
+        
+        //sombras tubo verde
+        ctx.beginPath();
+        ctx.fillStyle="rgba(0,29,0,0.5)";
+        ctx.fillRect(625,220,40,52);
+        ctx.fillRect(628,275,35,100);
+        ctx.closePath();
+
+        //sombras tubo(x2)
+        ctx.beginPath();
+        ctx.fillStyle="rgba(0,29,0,0.5)";
+        ctx.fillRect(625,220,40,52);
+        ctx.fillRect(628,275,35,100);
+        ctx.closePath();
+
+        //cuadro verder grande
+        ctx.beginPath();
+        ctx.lineWidth=3;
+        ctx.fillStyle="#00DD5B";
+        roundedRect(725,220,160,158,10);
+        ctx.fill();
+        ctx.stroke();
+        ctx.closePath();
+
+        //sombra cuadro verder
+        ctx.beginPath();
+        ctx.lineWidth=3;
+        ctx.fillStyle="#0A601F";
+        roundedRect(727,366,150,10,5);
+        ctx.fill();
+        ctx.closePath();
+
+
+        //tercer cuadro grande verde (circulo 1)
+        ctx.beginPath();//inicia
+        ctx.fillStyle = "#BDCBCD";
+        ctx.arc(745,350,10,0 ,2 * Math.PI);
+        ctx.stroke();
+        ctx.fill();
+        ctx.closePath();//termina
+
+         //tercer cuadro grande verde (circulo 2)
+        ctx.beginPath();//inicia
+        ctx.fillStyle = "#BDCBCD";
+        ctx.arc(745,240,10,0 ,2 * Math.PI);
+        ctx.stroke();
+        ctx.fill();
+        ctx.closePath();//termina
+
+        //lineas cuadrado verde
+        ctx.beginPath(); //inicia
+        ctx.lineWidth =2;
+        ctx.moveTo(750, 230); // Punto inicial (x, y)
+        ctx.lineTo(740, 249); // Punto final (x, y)
+        ctx.moveTo(750, 340); 
+        ctx.lineTo(740, 360);
+        ctx.stroke();
+        ctx.closePath(); //cierra
+
+        // Función para dibujar rectángulo con esquinas redondeadas
+        //usado nomas en los cuadros y sombreados
+        //funcion investigada
+        function roundedRect(x, y, width, height, cornerRadius) {
+            ctx.beginPath();
+            ctx.moveTo(x + cornerRadius, y);
+            ctx.lineTo(x + width - cornerRadius, y);
+            ctx.arcTo(x + width, y, x + width, y + cornerRadius, cornerRadius);
+            ctx.lineTo(x + width, y + height - cornerRadius);
+            ctx.arcTo(x + width, y + height, x + width - cornerRadius, y + height, cornerRadius);
+            ctx.lineTo(x + cornerRadius, y + height);
+            ctx.arcTo(x, y + height, x, y + height - cornerRadius, cornerRadius);
+            ctx.lineTo(x, y + cornerRadius);
+            ctx.arcTo(x, y, x + cornerRadius, y, cornerRadius);
+            ctx.closePath();
+        }
+        
+    </script>
+</body>
+</html>

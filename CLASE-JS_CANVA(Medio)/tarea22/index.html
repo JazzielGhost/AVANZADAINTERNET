@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarea 22</title>
+    <style>
+        canvas{
+            background-color: #2000A0;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+    
+    <canvas id="myCanvas" width="700px" height="400px"></canvas>
+
+    <script>
+        var canvas = document.getElementById('myCanvas');
+        var ctx = canvas.getContext('2d');
+
+        var w = 35;
+        var h = 35;
+        var filas =12;
+        var columnas= 50;
+
+        function generarPiso(){
+            var color = false; // Variable para alternar colores
+            // Loop para crear y dibujar el piso de cuadros
+            for (let fila = 0; fila < filas; fila++) {
+                for (let columna = 0; columna < columnas; columna++) {
+                    const x = columna * w;
+                    const y = fila * h;
+                    if (color) {
+                        ctx.fillStyle = '#C06000'; // Otro color
+                    } else {
+                        ctx.fillStyle = '#602000'; // Color original
+                    }
+                    ctx.fillRect(x, y, w, h);
+                    // Cambia el color
+                   color = !color;
+                }
+                // invertir color
+                color = !color;
+            }
+        }   
+
+        generarPiso();
+        ctx.beginPath();
+        ctx.fillStyle = "#2000A0";
+        ctx.fillRect(0,0,700,280);
+        ctx.closePath();
+
+        //anillos
+        ctx.beginPath();
+        ctx.strokeStyle = "#F7F606";
+        ctx.lineWidth =3;
+        ctx.arc(120,235,20,0 ,2 * Math.PI);
+        ctx.stroke();
+        ctx.closePath();
+
+        ctx.beginPath();
+        ctx.strokeStyle = "#F7F606";
+        ctx.lineWidth =3;
+        ctx.arc(220,235,20,0 ,2 * Math.PI);
+        ctx.stroke();
+        ctx.closePath();
+
+        ctx.beginPath();
+        ctx.strokeStyle = "#F7F606";
+        ctx.lineWidth =3;
+        ctx.arc(320,235,20,0 ,2 * Math.PI);
+        ctx.stroke();
+        ctx.closePath();
+
+
+        //piso
+        ctx.beginPath();
+        ctx.fillStyle = "#006000";
+        ctx.fillRect(0,290,700,20);
+        ctx.fillStyle = "#40A000";
+        ctx.fillRect(0,280,700,15);
+        ctx.fillStyle = "#80E000";
+        ctx.fillRect(0,270,700,15);
+        ctx.fillStyle = "rgba(0,0,0,0.5)";
+        ctx.fillRect(0,305,700,20);
+        ctx.closePath();
+
+        //palmera
+        ctx.beginPath();
+        ctx.fillStyle = "#804000";
+        ctx.fillRect(465,70,20,200);
+        ctx.closePath();
+
+        //palo de flor
+        ctx.beginPath();
+        ctx.fillStyle = "#40A000";
+        ctx.fillRect(625,200,7,70);
+        ctx.closePath();
+
+        ctx.beginPath();
+        ctx.fillStyle = "#E0E000";
+        ctx.arc(628,199,30,0 ,2 * Math.PI);
+        ctx.fill();
+        ctx.closePath();
+
+        //petalos
+        ctx.beginPath();
+        ctx.fillStyle = "#E0E000";
+        ctx.arc(610,200,20,0 ,2 * Math.PI);
+        ctx.arc(650,200,20,0 ,2 * Math.PI);
+        ctx.fill();
+        ctx.closePath();
+        //petalos
+        ctx.beginPath();
+        ctx.fillStyle = "#E0E000";
+        ctx.arc(630,180,20,0 ,2 * Math.PI);
+        ctx.arc(630,220,20,0 ,2 * Math.PI);
+        ctx.fill();
+        ctx.closePath();
+
+        //nucleo de la planta
+        ctx.beginPath();
+        ctx.fillStyle = "#406040";
+        ctx.arc(628,200,15,0 ,2 * Math.PI);
+        ctx.fill();
+        ctx.closePath();
+
+        //ramas
+        ctx.beginPath();
+        ctx.fillStyle = "#80E000"
+        ctx.moveTo(0,20,);
+        ctx.lineTo(150,40);
+        ctx.lineTo(0,80)
+        ctx.fill();
+        ctx.closePath();
+
+        ctx.beginPath();
+        ctx.fillStyle = "#80E000"
+        ctx.moveTo(400,20,);
+        ctx.lineTo(490,40);
+        ctx.lineTo(490,80)
+        ctx.moveTo(400,20,);
+        ctx.lineTo(560,40);
+        ctx.lineTo(420,80)
+        ctx.moveTo(460,12,);
+        ctx.lineTo(500,90);
+        ctx.lineTo(430,100)
+        ctx.fill();
+        ctx.closePath();
+
+
+
+    </script>
+</body>
+</html>

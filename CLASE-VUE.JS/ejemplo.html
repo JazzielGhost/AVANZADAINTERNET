@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avanzada - Vue</title>
+</head>
+<body>
+    <div class="">
+        <button onclick="count(this)">
+            Click ME <span> 0 </span>
+        </button>
+    </div>
+    <script type="text/javascript">
+        function count(t){
+            let n = parseInt(document.getElementsByTagName('span')[0].innerText)
+            document.getElementsByTagName('span')[0].innerText = n+1
+        }
+    </script>
+</body>
+</html>

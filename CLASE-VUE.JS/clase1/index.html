@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avanzada - Vue - Ejercicio 1 y 2</title>
+</head>
+<body>
+    <div id="app">
+        <button @click="count++">
+            Haz clic en mí {{ count }}
+        </button>
+
+        <h1>
+            Hola {{ username }}
+        </h1>
+
+        <input type="text" v-model="username">
+
+        <br>
+
+        <input type="number" v-model="num1">
+        <input type="number" v-model="num2">
+
+        <button @click="sumar">
+            Sumar
+        </button>
+
+        <h1>{{ resultado }}</h1>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script type="text/javascript">
+        const { createApp, ref } = Vue
+
+        createApp({
+            data() {
+                return {
+                    count: ref(0),
+                    username: ref(''),
+                    num1: ref(0),
+                    num2: ref(0),
+                    resultado: ref(0)
+                }
+            },
+            methods: {
+                sumar() {
+                    this.resultado = (+this.num1) + (this.num2)
+                }
+            }
+        }).mount("#app")
+    </script>
+</body>
+</html>

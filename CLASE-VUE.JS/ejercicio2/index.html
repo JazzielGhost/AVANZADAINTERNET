@@ -3,10 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Avanzada - Vue - Ejercicio 1 y 2</title>
+    <title>Avanzada - Vue - Ejercicio 2</title>
 </head>
 <body>
     <div id="app">
+
+        <form>
+            <fieldset>
+                <legend>
+                    Name(s):
+                </legend>
+                <input type="text" v-model="name" placeholder="write here">
+            </fieldset>
+    
+            <fieldset>
+                <legend>
+                    Last Name(s):
+                </legend>
+                <input type="text" v-model="lastname" placeholder="write here">
+            </fieldset>
+            <button type="button" v-on:click="savePerson" >Save data</button>
+        </form>
+
+        <ol>
+            <li v-for="p in people">
+                {{  p.nombre }} {{  p.apellido }}
+            </li>
+        </ol>
+
+        <hr>
+
         <button @click="count++">
             Haz clic en mí {{ count }}
         </button>
@@ -40,12 +66,23 @@
                     username: ref(''),
                     num1: ref(0),
                     num2: ref(0),
-                    resultado: ref(0)
+                    resultado: ref(0),
+                    name: ref(''),
+                    lastname: ref(''),
+                    people: ref([])
                 }
             },
             methods: {
                 sumar() {
                     this.resultado = (+this.num1) + (this.num2)
+                },
+                savePerson(){
+                    console.log("Hola");
+                    let person = {
+                        nombre:this.name,
+                        apellido:this.lastname
+                    };
+                    this.people.push(person);
                 }
             }
         }).mount("#app")

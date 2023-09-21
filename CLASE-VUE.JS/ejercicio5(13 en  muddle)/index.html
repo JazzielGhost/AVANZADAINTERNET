@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 5 (13 en muddle)</title>
+</head>
+<style>
+    .demo {
+        border: 1px solid #572323;
+        border-collapse: collapse;
+        padding: 5px;
+    }
+    .demo th {
+        border: 1px solid #572323;
+        padding: 5px;
+        background: #923535;
+    }
+    .demo td {
+        border: 1px solid #572323;
+        padding: 5px;
+    }
+
+</style>
+<body>
+    <div id="app">
+
+        <form action="" v-if="!access">
+            <fieldset>
+                <legend>
+                    email
+                </legend>
+                <input type="email" v-model="email" placeholder="write here">
+            </fieldset>
+
+            <fieldset>
+                <legend>
+                    password
+                </legend>
+                <input type="password" v-model="password" placeholder="write here">
+            </fieldset>
+            <button @click="login" type="button">Access</button>
+        </form>
+       <div v-if="access">
+        <table class="demo">
+            <caption>LISTA DE USUARIOS</caption>
+            <thead>
+            <tr>
+                <th>Person data</th>
+                <th>Contact data</th>
+                <th>Address</th>
+                <th>Company data</th>
+            </tr>
+            </thead>
+            <tr v-for="u in users">
+                <td>{{u.name}}, {{u.username}}</td>
+                <td>{{u.phone}}</td>
+                <td>{{u.email}}</td>
+                <td>{{u.companyName}}</td>
+            </tr>
+        </table>
+       </div>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script type="text/javascript">
+        const { createApp, ref } = Vue
+
+        createApp({
+            data() {
+                const users = ref([]);
+                const access =  ref(localStorage.getItem('is_login') ?? false);
+                const email = ref('');
+                const password = ref('');
+                const is_login = ref(false);
+
+                return {
+                    email,
+                    password,
+                    access,
+                    users,
+                    is_login
+                }
+            },
+            async mounted() {
+                const update = async () => {
+                    const response = await fetch("users.json");
+                    this.users = await response.json();
+                }
+                update();
+                                
+            },
+            methods: {
+                async login() {
+                    const response = await fetch("users.json");
+                    const users = await response.json();
+
+                    users.forEach(user => {
+                        if (this.email === user.email && this.password === user.password) {
+                            alert("Bienvenido " + user.name);
+                            localStorage.setItem("user_data", JSON.stringify(user));
+                            this.access = true;
+                            localStorage.setItem('is_login', true);
+                        }
+                    });
+
+                    if (!this.access) {
+                        alert("ERROR, intente de nuevo");
+                    }
+                }
+            }
+        }).mount("#app")
+    </script>
+</body>
+</html>

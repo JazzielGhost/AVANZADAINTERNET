@@ -1,0 +1,151 @@
+[
+    {
+        "name": "Jazziel",
+        "username": "JazzielGod",
+        "phone": "612-222-2222",
+        "email": "ja@gmail.com",
+        "password": "123",
+        "companyName": "FielderCommunity"
+    },
+    {
+      "name": "John Doe",
+      "username": "johndoe123",
+      "phone": "123-456-7890",
+      "email": "johndoe@example.com",
+      "companyName": "Example Company"
+    },
+    {
+      "name": "Alice Johnson",
+      "username": "alicej",
+      "phone": "555-123-4567",
+      "email": "alice@example.com",
+      "companyName": "Another Company"
+    },
+    {
+      "name": "Bob Smith",
+      "username": "bobsmith",
+      "phone": "777-987-6543",
+      "email": "bob@example.com",
+      "companyName": "ABC Corporation"
+    },
+    {
+      "name": "Emily Davis",
+      "username": "emilyd",
+      "phone": "111-222-3333",
+      "email": "emily@example.com",
+      "companyName": "XYZ Inc."
+    },
+    {
+      "name": "David Brown",
+      "username": "davidb",
+      "phone": "999-888-7777",
+      "email": "david@example.com",
+      "companyName": "Sample Enterprises"
+    },
+    {
+      "name": "Grace Wilson",
+      "username": "gracew",
+      "phone": "444-555-6666",
+      "email": "grace@example.com",
+      "companyName": "Acme Co."
+    },
+    {
+      "name": "Michael Lee",
+      "username": "michaellee",
+      "phone": "666-777-8888",
+      "email": "michael@example.com",
+      "companyName": "Tech Solutions"
+    },
+    {
+      "name": "Sophia Taylor",
+      "username": "sophiat",
+      "phone": "222-333-4444",
+      "email": "sophia@example.com",
+      "companyName": "Data Systems Inc."
+    },
+    {
+      "name": "Oliver Martinez",
+      "username": "oliverm",
+      "phone": "888-777-6666",
+      "email": "oliver@example.com",
+      "companyName": "Global Services"
+    },
+    {
+      "name": "Chloe Rodriguez",
+      "username": "chloer",
+      "phone": "333-444-5555",
+      "email": "chloe@example.com",
+      "companyName": "Web Solutions Ltd."
+    },
+    {
+      "name": "Daniel Kim",
+      "username": "danielk",
+      "phone": "555-666-7777",
+      "email": "daniel@example.com",
+      "companyName": "Software Innovations"
+    },
+    {
+      "name": "Ava White",
+      "username": "avaw",
+      "phone": "777-888-9999",
+      "email": "ava@example.com",
+      "companyName": "Digital Services Inc."
+    },
+    {
+      "name": "Ethan Adams",
+      "username": "ethana",
+      "phone": "666-555-4444",
+      "email": "ethan@example.com",
+      "companyName": "Network Solutions"
+    },
+    {
+      "name": "Mia Hall",
+      "username": "miah",
+      "phone": "444-333-2222",
+      "email": "mia@example.com",
+      "companyName": "Consulting Experts"
+    },
+    {
+      "name": "Noah Harris",
+      "username": "noahh",
+      "phone": "222-111-9999",
+      "email": "noah@example.com",
+      "companyName": "Tech Innovations"
+    },
+    {
+      "name": "Avery Turner",
+      "username": "averyt",
+      "phone": "999-888-7777",
+      "email": "avery@example.com",
+      "companyName": "Creative Solutions"
+    },
+    {
+      "name": "Isabella Clark",
+      "username": "isabellac",
+      "phone": "333-222-1111",
+      "email": "isabella@example.com",
+      "companyName": "Design Studios"
+    },
+    {
+      "name": "Liam Allen",
+      "username": "liama",
+      "phone": "777-666-5555",
+      "email": "liam@example.com",
+      "companyName": "Online Ventures"
+    },
+    {
+      "name": "Charlotte King",
+      "username": "charlottek",
+      "phone": "555-444-3333",
+      "email": "charlotte@example.com",
+      "companyName": "Marketing Pro"
+    },
+    {
+      "name": "James Perez",
+      "username": "jamesp",
+      "phone": "111-999-8888",
+      "email": "james@example.com",
+      "companyName": "Advertising Group"
+    }
+  ]
+  

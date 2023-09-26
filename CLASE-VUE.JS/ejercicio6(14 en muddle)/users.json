@@ -1,0 +1,107 @@
+[
+  {
+      "id": 1,
+      "name": "Jazziel",
+      "username": "JazzielGod",
+      "phone": "612-222-2222",
+      "email": "ja@gmail.com",
+      "password": "123",
+      "companyName": "FielderCommunity"
+  },
+  {
+      "id": 2,
+      "name": "John Doe",
+      "username": "johndoe123",
+      "phone": "123-456-7890",
+      "email": "johndoe@example.com",
+      "companyName": "Example Company"
+  },
+  {
+      "id": 3,
+      "name": "Alice Johnson",
+      "username": "alicej",
+      "phone": "555-123-4567",
+      "email": "alice@example.com",
+      "companyName": "Another Company"
+  },
+  {
+      "id": 4,
+      "name": "Bob Smith",
+      "username": "bobsmith",
+      "phone": "777-987-6543",
+      "email": "bob@example.com",
+      "companyName": "ABC Corporation"
+  },
+  {
+      "id": 5,
+      "name": "Emily Davis",
+      "username": "emilyd",
+      "phone": "111-222-3333",
+      "email": "emily@example.com",
+      "companyName": "XYZ Inc."
+  },
+  {
+      "id": 6,
+      "name": "David Brown",
+      "username": "davidb",
+      "phone": "999-888-7777",
+      "email": "david@example.com",
+      "companyName": "Sample Enterprises"
+  },
+  {
+      "id": 7,
+      "name": "Grace Wilson",
+      "username": "gracew",
+      "phone": "444-555-6666",
+      "email": "grace@example.com",
+      "companyName": "Acme Co."
+  },
+  {
+      "id": 8,
+      "name": "Michael Lee",
+      "username": "michaellee",
+      "phone": "666-777-8888",
+      "email": "michael@example.com",
+      "companyName": "Tech Solutions"
+  },
+  {
+      "id": 9,
+      "name": "Sophia Taylor",
+      "username": "sophiat",
+      "phone": "222-333-4444",
+      "email": "sophia@example.com",
+      "companyName": "Data Systems Inc."
+  },
+  {
+      "id": 10,
+      "name": "Oliver Martinez",
+      "username": "oliverm",
+      "phone": "888-777-6666",
+      "email": "oliver@example.com",
+      "companyName": "Global Services"
+  },
+  {
+      "id": 11,
+      "name": "Chloe Rodriguez",
+      "username": "chloer",
+      "phone": "333-444-5555",
+      "email": "chloe@example.com",
+      "companyName": "Web Solutions Ltd."
+  },
+  {
+      "id": 12,
+      "name": "Daniel Kim",
+      "username": "danielk",
+      "phone": "555-666-7777",
+      "email": "daniel@example.com",
+      "companyName": "Software Innovations"
+  },
+  {
+      "id": 13,
+      "name": "Ava White",
+      "username": "avaw",
+      "phone": "777-888-9999",
+      "email": "ava@example.com",
+      "companyName": "Digital Services Inc."
+  }
+]

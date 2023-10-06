@@ -1,0 +1,54 @@
+body {
+  background-color: #5a9ed2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.first_div {
+  border: 5px solid black;
+  border-radius: 10px;
+  padding: 20px;
+}
+.first_div form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.first_div form h3 {
+  color: #000000;
+  margin-top: 15px;
+}
+.first_div form .inputUser,
+.first_div form .inputPassword {
+  width: 100%;
+  margin: 1em;
+  padding: 0.5em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.first_div form .inputUser:focus,
+.first_div form .inputPassword:focus {
+  border-color: #555;
+}
+.first_div form button {
+  background-color: #5a9ed2;
+  border: 1px solid #000000;
+  border-radius: 10px;
+  padding: 10px 20px;
+  margin-top: 15px;
+  cursor: pointer;
+  color: #000000;
+}
+.first_div form button:hover {
+  background-color: #3586c4;
+  color: #1a1a1a;
+}
+.social {
+  display: flex;
+}
+.social .go,
+.social .fb {
+  cursor: pointer;
+  margin: 10px;
+}

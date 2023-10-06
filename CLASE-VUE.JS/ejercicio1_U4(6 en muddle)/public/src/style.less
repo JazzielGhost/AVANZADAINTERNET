@@ -1,0 +1,65 @@
+@color-back: rgb(90, 158, 210);
+@colorh3: rgb(0, 0, 0);
+@def_Margin: 10px;
+//lessc style.less style.css - convertidor de less a css desde gitBash
+body {
+  background-color: @color-back;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.first_div {
+  border: 5px solid black;
+  border-radius: 10px;
+  padding: 20px;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h3 {
+      color: @colorh3;
+      margin-top: 15px; 
+    }
+
+    .inputUser,
+    .inputPassword {
+      width: 100%;
+      margin: 1em; 
+      padding: 0.5em;
+      border: 1px solid #ccc;  
+      border-radius: 5px;  
+      
+      &:focus {
+        border-color: #555; 
+      }
+    }
+
+    button {
+      background-color: @color-back;
+      border: 1px solid @colorh3; 
+      border-radius: 10px;
+      padding: 10px 20px; 
+      margin-top: 15px; 
+      cursor: pointer;
+      color: @colorh3;
+
+      &:hover {
+        background-color: darken(@color-back, 10%);
+        color: lighten(@colorh3, 10%);
+      }
+    }
+  }
+}
+
+.social {
+  display: flex;
+  .go,
+  .fb {
+    cursor: pointer;
+    margin: @def_Margin;
+  }
+}

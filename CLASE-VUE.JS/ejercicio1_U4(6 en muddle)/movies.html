@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOVIES</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="public/src/movies.css">
+</head>
+<body>
+
+<section class="hero-section">
+  <div class="card-grid" id="app">
+    <a class="card" href="#" v-for="m in movies">
+      <div class="card__background" :style="{ backgroundImage: 'url(https://image.tmdb.org/t/p/w500' + m.poster_path + ')' }"></div>
+      <div class="card__content">
+        <p class="card__category">{{ m.title }}</p>
+        <!--<h3 class="card__heading"></h3>-->
+      </div>
+    </a>
+  <div>
+</section>
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script type="text/javascript">
+const { createApp, ref} = Vue;
+
+createApp({
+  setup() {
+    const movies = ref([]);
+    return {
+      movies
+    }  
+  },
+  async mounted() {
+        const update = async () => {
+            var myHeaders = new Headers();
+            myHeaders.append("Authorization", "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmNDc3ZjJkZjM0M2FmMTY4YjYyMzExYmM5N2Q1Y2QwNCIsInN1YiI6IjY1MTRjYjkwYTE5OWE2MDBlMWZhNzhkNiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.wV60lVhr66QmEaGGJoDYE9lZcvC95_zMGUVtiWL8ibo");
+
+            var requestOptions = {
+            method: 'GET',
+            headers: myHeaders,
+            redirect: 'follow'
+            };
+
+            fetch("https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc", requestOptions)
+            .then(response => response.json())
+            .then(result => {
+                console.log(result)
+                this.movies = result.results;
+            })
+            .catch(error => console.log('error', error));
+            }                  
+        update()        
+    }
+   
+}).mount("#app");
+</script>
+
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Design by foolishdeveloper.com -->
+    <title>Login</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <!--Stylesheet-->
+    <link rel="stylesheet" type="text/css" href="public/src/style.css">
+    <!--<link rel="stylesheet/less" type="text/css" href="public/src/style.less" />-->
+  </head>
+<body>
+
+  <div id="app" class="first_div">
+    <form action="#" @submit.prevent="login">
+      <h3>
+        <i class="fas fa-sign-in-alt"></i> Login
+      </h3>
+
+      <label class="user" for="username">User</label>
+      <input class="inputUser" type="text" placeholder="Username" v-model="username" id="username" required>
+
+      <label class="password" for="password">Password</label>
+      <input class="inputPassword" type="password" placeholder="Password" v-model="password" id="password" required>
+      
+      <button class="buttonSubmit" type="submit">
+        Log In
+      </button>
+
+     
+
+      <div class="social">
+        <div class="go"><i class="fab fa-google"></i>  Google</div>
+        <div class="fb"><i class="fab fa-facebook"></i>  Facebook</div>
+      </div>
+    </form>
+   </div>
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script type="text/javascript">
+  const { createApp, ref } = Vue
+
+  createApp({
+      setUp() {
+          const login = ref(localStorage.getItem('is_login') === 'true');
+          const email = ref('');
+          const password = ref('');
+          return {
+            login,
+            username,
+            password
+          }
+      },
+      methods: {
+          async login(){
+            console.log("hola");
+            var myHeaders = new Headers();
+            myHeaders.append("Content-Type", "application/json");
+            myHeaders.append("Authorization", "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmNDc3ZjJkZjM0M2FmMTY4YjYyMzExYmM5N2Q1Y2QwNCIsInN1YiI6IjY1MTRjYjkwYTE5OWE2MDBlMWZhNzhkNiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.wV60lVhr66QmEaGGJoDYE9lZcvC95_zMGUVtiWL8ibo");
+
+            var raw = JSON.stringify({
+              "username": "JazzielGod",
+              "password": "Reyjaziel",
+              "request_token": ""
+            });
+            var datos = JSON.parse(raw);
+            //console.log(datos.username +"" +datos.password);
+
+            var requestOptions = {
+              method: 'POST',
+              headers: myHeaders,
+              body: raw,
+              redirect: 'follow'
+            };
+             /*const response = await fetch("https://api.themoviedb.org/3/authentication/token/validate_with_login",requestOptions);
+            let responsev2 = await response.json();
+            console.log(response.success); */
+            if (this.username === datos.username && this.password === datos.password) {
+              alert("Bienvenido " + datos.username);
+
+              fetch("https://api.themoviedb.org/3/authentication/token/validate_with_login", requestOptions)
+              .then(response => response.json())
+              .then(result => {
+                console.log(result);
+                
+                console.log(result.success);
+                this.login = result.success;
+                localStorage.setItem('is_login', true);
+                window.location.href = ("http://localhost:3000/CLASE-VUE.JS/ejercicio1_U4(6%20en%20muddle)/movies.html#");
+                //console.log("hola 2");
+              })
+              .catch(error => console.log('error', error));              
+            }else{
+              alert("Error, Intente de nuevo.");
+            }
+             
+              
+            return false;
+          }
+      }
+  }).mount("#app")
+</script>
+</body>
+</html>

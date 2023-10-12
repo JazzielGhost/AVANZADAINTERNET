@@ -7,12 +7,39 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
     <!--Stylesheet-->
-    <link rel="stylesheet" type="text/css" href="public/src/style.css">
-    <!--<link rel="stylesheet/less" type="text/css" href="public/src/style.less" />-->
+   <!-- <link rel="stylesheet" type="text/css" href="public/src/style.css">
+    <link rel="stylesheet/less" type="text/css" href="public/src/style.less" />-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <style>
+    body{
+      background-color: rgb(61, 183, 69);
+    }
+  </style>
   </head>
 <body>
+    <div class="container">
+        <div class="row align-items-center justify-content-center"  style="min-height: 80vh;">
+          <div class="col-lg-4 col-md-6 mx-auto">
+            <form action="#" class="form-control p-10">
+              <h1 class="text-center">Login</h1>
+              <div class="col-md-12">
+                <label for="floatingInput">Email address</label>
+                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+              </div>
+              <div class="form-floating-sm12">
+                <label for="floatingPassword">Password</label>
+                <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+              </div>
+              <div class="d-grid gap-4">
+                <button type="button" class="btn btn-primary mt-3">Submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
+    </div>
 
-  <div id="app" class="first_div">
+  <!--
+    <div id="app" class="first_div">
     <form action="#" @submit.prevent="login">
       <h3>
         <i class="fas fa-sign-in-alt"></i> Login
@@ -35,7 +62,8 @@
         <div class="fb"><i class="fab fa-facebook"></i>  Facebook</div>
       </div>
     </form>
-   </div>
+   </div>-->
+
 
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 <script type="text/javascript">
@@ -101,5 +129,6 @@
       }
   }).mount("#app")
 </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 </html>

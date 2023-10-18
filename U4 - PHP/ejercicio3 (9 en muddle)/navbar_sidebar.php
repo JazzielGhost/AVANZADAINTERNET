@@ -1,3 +1,6 @@
+<?php
+  session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,9 +50,11 @@
                 </ul>
               </li>
               <li class="nav-item">
-                <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                <a class="nav-link disabled" aria-disabled="true"><?php echo $_SESSION['name'] , $_SESSION['lastname']; ?></a>
               </li>
             </ul>
+            <i class="fas fa-user me-2 "></i>
+            <i class="me-2"><?php echo $_SESSION['name'];?></i>
             <form class="d-flex" role="search">
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
               <button class="btn btn-outline-success" type="submit">Search</button>

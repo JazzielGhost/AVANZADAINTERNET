@@ -11,6 +11,5 @@
     header('Content-Type: application/json');
     $context = stream_context_create($options);
     $response = file_get_contents($url, false, $context);
-    
-   echo $data['password'];
+    echo $response;
 ?>

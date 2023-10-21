@@ -42,7 +42,7 @@ Class AuthController
 
 		if ($response->code > 0) {
 			
-			$_SESSION['user_id'] = $response->data->id;
+			$_SESSION['id'] = $response->data->id;
 			$_SESSION['name'] = $response->data->name;
 	        $_SESSION['lastname'] = $response->data->lastname;
 	        $_SESSION['avatar'] =  $response->data->avatar;
@@ -54,7 +54,8 @@ Class AuthController
 	        header("Location: /AVANZADAINTERNET/U4-PHP/ejercicio_crud/app/navbar_sidebar.php");
 
 		}else{
-			echo <script>alert( "error, al obtener respuesta del servidor o datos incorrectos" );</script> ;
+			echo "<script>alert('Error, al obtener respuesta del servidor o datos incorrectos');</script>";
+			echo "<script>window.location.href = '/AVANZADAINTERNET/U4-PHP/ejercicio_crud/index.html';</script>";
 		}
 	}
 }

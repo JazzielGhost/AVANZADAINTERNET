@@ -1,10 +1,14 @@
 <?php
   session_start();
-	if (!isset($_SESSION['id'])) {
+	if (!isset($_SESSION['user_id'])) {
 		header("Location: /AVANZADAINTERNET/U4-PHP/ejercicio_crud/index.html");
 	}
-  include('products_all.php');    
-  $products = new Products();
+  include('products_id.php');
+  if(isset($_GET['id'])){
+    $id = $_GET['id'];
+  }
+  $produc = new Product();
+  $product = $produc->getProduct($id);  
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,7 +42,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <a class="nav-link active" aria-current="page" href="/AVANZADAINTERNET/U4-PHP/ejercicio_crud/app/navbar_sidebar.php">Home</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Link</a>
@@ -62,30 +66,31 @@
             <i class="me-2"><?php echo $_SESSION['name'];?></i>
             <form class="d-flex" role="search">
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
+              <button class="btn btn-outline-success" type="reset">Search</button>
             </form>
           </div>
         </div>
       </nav>
       <!-- Contenido -->
-      <div class="container">
+      <?php: ?>
+        <div class="container">
         <div class="row">
-          <?php foreach($products->getProducts() as $product): ?>
             <div class="col-12 col-md-4 mt-3">
               <div class="card mb-4">
-                <img class="card-img-top" src="<?= $product->cover?>" alt="Card image cap">
+                <img class="card-img-top" src="<?= $product->cover ?>" alt="Card image cap">
                 <div class="card-body">
                   <h5 class="card-title"><?= $product->name ?></h5>
                   <p class="card-text"><?= $product->description ?></p>
-                </div>
-                <div class="card-body">
-                  <a href="go_somewhere.php?id=<?= $product->id ?>" class="card-link">Go Somewhere</a>
-                </div>
+                  <p class="card-text"><?= $product->features ?></p>
+                  <button type="reset" class="btn btn-success"><?= $product->brand->name ?></button>
+                  <button type="reset" class="btn btn-success"  style="margin-top: 10px;"> <?=  $product->brand->description  ?></button>
+
+                </div> 
               </div>
             </div>
-          <?php endforeach; ?>
         </div>
-      </div>
+      </div>      
+      <?php ?>
       <!-- Offcanvas sidebar -->
       <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
         <div class="offcanvas-header">

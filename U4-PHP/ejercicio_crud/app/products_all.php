@@ -22,7 +22,6 @@
         $response = json_decode($response);
 
         if($response->code > 0){
-            
             $data = $response->data;
             return $data;
         }else{

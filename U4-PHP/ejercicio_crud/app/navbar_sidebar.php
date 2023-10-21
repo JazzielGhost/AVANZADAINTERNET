@@ -1,8 +1,10 @@
 <?php
   session_start();
 	if (!isset($_SESSION['user_id'])) {
-		header("Location: ./ejercicio6y8/index.html");
+		header("Location: /AVANZADAINTERNET/U4-PHP/ejercicio_crud/index.html");
 	}
+  include('products_all.php');    
+  $products = new Products();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -65,6 +67,25 @@
           </div>
         </div>
       </nav>
+      <!-- Contenido -->
+      <div class="container">
+        <div class="row">
+          <?php foreach($products->getProducts() as $product): ?>
+            <div class="col-12 col-md-4 mt-3">
+              <div class="card mb-4">
+                <img class="card-img-top" src="<?= $product->cover ?>" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title"><?= $product->name ?></h5>
+                  <p class="card-text"><?= $product->description ?></p>
+                </div>
+                <div class="card-body">
+                  <a href="#" class="card-link">Go Somewhere</a>
+                </div>
+              </div>
+            </div>
+          <?php endforeach; ?>
+        </div>
+      </div>
       <!-- Offcanvas sidebar -->
       <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
         <div class="offcanvas-header">

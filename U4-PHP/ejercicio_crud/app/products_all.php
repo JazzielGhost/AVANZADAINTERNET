@@ -1,5 +1,4 @@
 <?php
-    session_start();
      class Products{
         public function getProducts(){
         
@@ -19,11 +18,16 @@
         ));
 
         $response = curl_exec($curl);
-
         curl_close($curl);
         $response = json_decode($response);
 
-
+        if($response->code > 0){
+            
+            $data = $response->data;
+            return $data;
+        }else{
+            return [];
+        }
 
         }
     }

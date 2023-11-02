@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,34 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+/*Route::view('/', 'welcome'); */
+
 Route::get('/', function () {
     return view('welcome');
 });
+
+//rutas para 1-suma 2-resta 3-multiplicar 4-dividir
+Route::get('/operacion/{tipo}/{num1}/{num2}', function ($tipo, $num1, $num2) {
+    switch ($tipo) {
+        case 'suma':
+            return '<h1>' . ucfirst($tipo) . ': ' . $num1 . '+' . $num2 . ' = ' . $num1 + $num2 . '</h1>';
+        case 'resta':
+            return '<h1>' . ucfirst($tipo) . ': ' . $num1 . '-' . $num2 . ' = ' . $num1 - $num2 . '</h1>';
+        case 'multiplicacion':
+            return '<h1>' . ucfirst($tipo) . ': ' . $num1 . '*' . $num2 . ' = ' . $num1 * $num2 . '</h1>';
+        case 'dividir':
+            return '<h1>' . ucfirst($tipo) . ': ' . $num1 . '/' . $num2 . ' = ' . $num1 / $num2 . '</h1>';
+    }
+})->where(['tipo' => '(suma|resta|multiplicacion|dividir)'])
+    ->where(['num1' => '[0-9]+', 'num2' => '[0-9]+']);
+
+//ruta para mostrar saludo, opcional el apellido
+Route::get('/buscar-user/{name}/{lastname?}', function ($name, $lastname = 'Doe') {
+    return 'Nombre: '.$name . "<br> Apellido: " . $lastname;
+})->whereAlpha(['name', 'lastname']);
+
+Route::get('/vista/{name}', function ($name) {
+    return view('prueba', ['name' => $name]);
+})->whereAlpha('name');
+
+Route::get('/prueba-controler/{name}', [UseController::class, 'index'])->whereAlpha('name');;

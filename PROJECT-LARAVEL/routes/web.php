@@ -15,7 +15,6 @@ use App\Http\Controllers\UseController;
 */
 
 /*Route::view('/', 'welcome'); */
-
 Route::get('/', function () {
     return view('welcome');
 });
@@ -40,8 +39,10 @@ Route::get('/buscar-user/{name}/{lastname?}', function ($name, $lastname = 'Doe'
     return 'Nombre: '.$name . "<br> Apellido: " . $lastname;
 })->whereAlpha(['name', 'lastname']);
 
+//saludar con vista
 Route::get('/vista/{name}', function ($name) {
     return view('prueba', ['name' => $name]);
 })->whereAlpha('name');
 
-Route::get('/prueba-controler/{name}', [UseController::class, 'index'])->whereAlpha('name');;
+//saludar con vista por medio de un controlador
+Route::get('/prueba-controler/{name}', [UseController::class, 'index'])->whereAlpha('name');

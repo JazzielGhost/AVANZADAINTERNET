@@ -13,10 +13,14 @@ use App\Http\Controllers\UseController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
+ 
 /*Route::view('/', 'welcome'); */
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('/login', function () {
+    return view('auth-login');
 });
 
 //rutas para 1-suma 2-resta 3-multiplicar 4-dividir
@@ -46,3 +50,5 @@ Route::get('/vista/{name}', function ($name) {
 
 //saludar con vista por medio de un controlador
 Route::get('/prueba-controler/{name}', [UseController::class, 'index'])->whereAlpha('name');
+
+

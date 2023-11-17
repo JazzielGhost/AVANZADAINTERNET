@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UseController;
+use App\Http\Controllers\CarController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +23,20 @@ Route::get('/', function () {
 Route::get('/login', function () {
     return view('auth-login');
 });
+
+Route::get('/home', function () {
+    return view('home');
+});
+
+Route::get('/usuarios', function () {
+    return view('usuarios');
+});
+
+Route::get('/carritos', [CarController::class, 'index']);
+Route::get('/carritos/{id}', [CarController::class, 'show']);
+
+Route::get('/users', [UseController::class, 'index']);
+Route::get('/users/{id}', [UseController::class, 'show']);
 
 //rutas para 1-suma 2-resta 3-multiplicar 4-dividir
 Route::get('/operacion/{tipo}/{num1}/{num2}', function ($tipo, $num1, $num2) {

@@ -4,19 +4,18 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\User;
+use App\Models\Car;
 
-class UseController extends Controller
+class CarController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-       /* return view("prueba", ["name"=> $name]);*/
-       $usuarios = User::all();
-        return $usuarios;
-        
+        $carritos = Car::all();
+        return $carritos;
+        /*return view('asaa', [carritos]) */
     }
 
     /**
@@ -39,9 +38,9 @@ class UseController extends Controller
      * Display the specified resource.
      */
     public function show(string $id)
-    {     
-        $usuario = User::find($id);
-        return $usuario;
+    {
+        $carrito = Car::find($id);
+        return $carrito;
     }
 
     /**

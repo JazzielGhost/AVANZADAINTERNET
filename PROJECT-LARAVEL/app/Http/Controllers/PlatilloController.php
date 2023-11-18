@@ -2,21 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Platillo;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Models\User;
+use App\Http\Requests\StorePlatilloRequest;
+use App\Http\Requests\UpdatePlatilloRequest;
 
-class UseController extends Controller
+class PlatilloController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-       /* return view("prueba", ["name"=> $name]);
-       return view("usuarios", ["usuarios"=> $usuarios]); */
-       $usuarios = User::all();
-       return $usuarios;
+        //
     }
 
     /**
@@ -30,7 +28,7 @@ class UseController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StorePlatilloRequest $request)
     {
         //
     }
@@ -38,16 +36,15 @@ class UseController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
-    {     
-        $usuario = User::find($id);
-        return $usuario;
+    public function show(Platillo $platillo)
+    {
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Platillo $platillo)
     {
         //
     }
@@ -55,7 +52,7 @@ class UseController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdatePlatilloRequest $request, Platillo $platillo)
     {
         //
     }
@@ -63,7 +60,7 @@ class UseController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Platillo $platillo)
     {
         //
     }

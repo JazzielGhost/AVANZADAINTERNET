@@ -27,15 +27,15 @@ Route::get('/login', function () {
 Route::get('/home', function () {
     return view('home');
 });
-
+/*
 Route::get('/usuarios', function () {
     return view('usuarios');
 });
-
+*/
 Route::get('/carritos', [CarController::class, 'index']);
 Route::get('/carritos/{id}', [CarController::class, 'show']);
 
-Route::get('/users', [UseController::class, 'index']);
+Route::get('/usuarios', [UseController::class, 'index']);
 Route::get('/users/{id}', [UseController::class, 'show']);
 
 //rutas para 1-suma 2-resta 3-multiplicar 4-dividir

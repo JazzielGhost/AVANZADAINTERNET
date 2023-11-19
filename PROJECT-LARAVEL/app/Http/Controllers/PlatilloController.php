@@ -14,7 +14,8 @@ class PlatilloController extends Controller
      */
     public function index()
     {
-        //
+        $platillos = Platillo::all();
+        return $platillos;
     }
 
     /**

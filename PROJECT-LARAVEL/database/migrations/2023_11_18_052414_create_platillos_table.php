@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('platillos', function (Blueprint $table) {
             $table->id();
+            $table->string('nombre') -> unique();
+            $table->string('descripcion', 500) -> nullable();
+            $table->string('categoria') -> nullable();
             $table->timestamps();
         });
     }

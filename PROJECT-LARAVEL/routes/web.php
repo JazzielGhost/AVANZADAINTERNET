@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UseController;
 use App\Http\Controllers\CarController;
+use App\Http\Controllers\PlatilloController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +33,8 @@ Route::get('/usuarios', function () {
     return view('usuarios');
 });
 */
+Route::get('/platillos', [PlatilloController::class, 'index']);
+
 Route::get('/carritos', [CarController::class, 'index']);
 Route::get('/carritos/{id}', [CarController::class, 'show']);
 
